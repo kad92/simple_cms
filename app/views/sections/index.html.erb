@@ -1,14 +1,10 @@
-<%if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice]%>
-  </div>
-<%end%>
+<% @page_title = "Sections"%>
 
 <div class= "sections index">
 	<h2>Section</h2>
 
 	<%= link_to("Add New Section",{:action => 'new'}, :class => 'action new') %>
-
+  <div><%= pluralize(@sections.size,"section")%> found </div>
 	<table class="listing" summary="Section list">
 		<tr class="header">
 			<th>Page ID</th>
@@ -36,6 +32,6 @@
 				</td>
 			<tr>
 		<%end%>
-	</table>	
+	</table>
 </div>
 

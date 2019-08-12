@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
-  
-  layout false
+
+  layout "admin"
 
   def index
     @subjects = Subject.sorted
@@ -15,7 +15,7 @@ class SubjectsController < ApplicationController
   end
 
   def edit
-    @subject = Subject.find(params[:id]) 
+    @subject = Subject.find(params[:id])
   end
 
   def update
@@ -26,8 +26,8 @@ class SubjectsController < ApplicationController
       redirect_to(:action => 'index')
     else
       render 'edit'
-    end 
-  end 
+    end
+  end
 
   def create
     @subject = Subject.new(subject_params)
@@ -38,8 +38,8 @@ class SubjectsController < ApplicationController
       redirect_to(:action => 'index')
     else
       render 'new'
-    end 
-  end 
+    end
+  end
 
   def delete
     @subject = Subject.find(params[:id])
@@ -53,7 +53,7 @@ class SubjectsController < ApplicationController
     redirect_to(:action => 'index')
   end
 
-  private 
+  private
 
     def subject_params
       params.require(:subject).permit(:name,:position,:visible)
