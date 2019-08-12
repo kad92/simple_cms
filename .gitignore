@@ -7,12 +7,6 @@
 # Ignore bundler config.
 /.bundle
 
-#Ignore Gemfile and Gemfile.lock in Mac to not affect my work in windows
-
-Gemfile
-
-Gemfile.lock
-
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
