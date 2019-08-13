@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_08_05_062336) do
 
-  create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "subject_id"
     t.string "name"
     t.string "permalink"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_08_05_062336) do
     t.index ["subject_id"], name: "index_pages_on_subject_id"
   end
 
-  create_table "sections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sections", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "page_id"
     t.string "name"
     t.integer "position"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2019_08_05_062336) do
     t.index ["page_id"], name: "index_sections_on_page_id"
   end
 
-  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "position"
     t.boolean "visible"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_08_05_062336) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "first_name", limit: 25
     t.string "last_name", limit: 50
     t.string "email", default: "", null: false

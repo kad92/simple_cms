@@ -1,14 +1,10 @@
-<%if !flash[:notice].blank? %>
-  <div class="notice">
-    <%= flash[:notice]%>
-  </div>
-<%end%>
+<% @page_title = "Pages"%>
 
 <div class= "pages index">
 	<h2>Pages</h2>
 
 	<%= link_to("Add New Page",{:action => 'new'}, :class => 'action new') %>
-
+  <div><%= pluralize(@pages.size,"page")%> found </div>
 	<table class="listing" summary="Page list">
 		<tr class="header">
 			<th>Subject ID</th>
@@ -24,7 +20,7 @@
 				<td><%= page.subject_id %></td>
 				<td><%= page.name %></td>
 				<td><%= page.permalink %></td>
-				<td class="center"><%= page.visible ? 'Yes' : 'No' %></td>
+				<td class="center"><%= status_tag(page.visible) %></td>
 				<td class="center"><%= page.sections.size %></td>
 
 				<td class="actions">
@@ -34,6 +30,6 @@
 				</td>
 			<tr>
 		<%end%>
-	</table>	
+	</table>
 </div>
 
