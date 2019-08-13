@@ -4,6 +4,12 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Ignore these files so that they won't go to the windows master branch
+.DS_Store
+.vscode/
+Gemfile.lock
+app/.DS_Store]
+.gitignore
 # Ignore bundler config.
 /.bundle
 
