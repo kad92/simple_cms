@@ -16,7 +16,7 @@
 		</tr>
 
 		<% @pages.each do |page| %>
-			<tr>
+			<tr class="<%= cycle('odd','even')%>">
 				<td><%= page.subject_id %></td>
 				<td><%= page.name %></td>
 				<td><%= page.permalink %></td>
