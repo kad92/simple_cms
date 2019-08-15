@@ -7,7 +7,7 @@
   <div><%= pluralize(@pages.size,"page")%> found </div>
 	<table class="listing" summary="Page list">
 		<tr class="header">
-			<th>Subject ID</th>
+			<th>Subject</th>
 			<th>Pages</th>
 			<th>Permalink</th>
 			<th>Visible</th>
@@ -17,7 +17,7 @@
 
 		<% @pages.each do |page| %>
 			<tr class="<%= cycle('odd','even')%>">
-				<td><%= page.subject_id %></td>
+				<td><%= page.subject.name if page.subject %></td>
 				<td><%= page.name %></td>
 				<td><%= page.permalink %></td>
 				<td class="center"><%= status_tag(page.visible) %></td>

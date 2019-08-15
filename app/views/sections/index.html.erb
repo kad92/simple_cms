@@ -7,7 +7,7 @@
   <div><%= pluralize(@sections.size,"section")%> found </div>
 	<table class="listing" summary="Section list">
 		<tr class="header">
-			<th>Page ID</th>
+			<th>Page</th>
 			<th>Sections</th>
 			<th>Position</th>
 			<th>Visible</th>
@@ -18,7 +18,7 @@
 
 		<% @sections.each do |section| %>
 			<tr class="<%= cycle('odd','even')%>" >
-				<td><%= section.page_id %></td>
+				<td><%= section.page.name if section.page  %></td>
 				<td><%= section.name %></td>
 				<td><%= section.position %></td>
 				<td class="center"><%= status_tag(section.visible) %></td>
