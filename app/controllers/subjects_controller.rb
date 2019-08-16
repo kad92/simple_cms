@@ -25,7 +25,7 @@ class SubjectsController < ApplicationController
 
     if @subject.update_attributes(subject_params)
       flash[:notice] = "Subject updated successfully."
-      redirect_to(:action => 'index')
+      redirect_to(:action => 'show', :id => @subject.id)
     else
       @subject_count = Subject.count
       render 'edit'
@@ -60,7 +60,7 @@ class SubjectsController < ApplicationController
   private
 
     def subject_params
-      params.require(:subject).permit(:name,:position,:visible)
+      params.require(:subject).permit(:name,:position,:visible,:created_at)
     end
 
 end
