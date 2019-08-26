@@ -19,7 +19,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font: 14px Verdana,Lucida,Arial,Helvetica,sans-serif; color: #332318;
+  font: 14px Verdana,Lucida,Arial,Helvetica,sans-serif; 
+  color: #332318;
+  background: rgb(239, 234, 234);
 }
 p, td, ul, ol, li, dl, dt, dd {
   font-family: Verdana,Lucida,Arial,Helvetica,sans-serif;
@@ -63,7 +65,6 @@ a, a:visited {
 }
 #main {
   position:relative;
-  height: 100%;
   background: rgb(239, 234, 234);
 }
 #navigation {

@@ -1,0 +1,20 @@
+<% @page_title = "Admin Users"%>
+
+<div>
+	<table>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>username</th>
+			<th>email</th>
+		</tr>
+		<% @admin_users.each do |adminUser|%>
+			<tr>
+				<td><%= adminUser.first_name %></td>
+				<td><%= adminUser.last_name %></td>
+				<td><%= adminUser.username %></td>
+				<td><%= adminUser.email %></td>
+			</tr>
+		<%end%>
+	</table>
+</div>
