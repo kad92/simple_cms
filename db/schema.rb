@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_08_25_035802) do
 
-  create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "first_name", limit: 25
     t.string "last_name", limit: 50
     t.string "email", default: "", null: false
@@ -22,15 +22,14 @@ ActiveRecord::Schema.define(version: 2019_08_25_035802) do
     t.string "password_digest"
   end
 
-  create_table "admin_users_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "admin_users_pages", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "admin_user_id"
     t.bigint "page_id"
-    t.index ["admin_user_id", "page_id"], name: "index_admin_users_pages_on_admin_user_id_and_page_id"
     t.index ["admin_user_id"], name: "index_admin_users_pages_on_admin_user_id"
     t.index ["page_id"], name: "index_admin_users_pages_on_page_id"
   end
 
-  create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "pages", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "subject_id"
     t.string "name"
     t.string "permalink"
@@ -42,7 +41,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_035802) do
     t.index ["subject_id"], name: "index_pages_on_subject_id"
   end
 
-  create_table "section_edits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "section_edits", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "admin_user_id"
     t.bigint "section_id"
     t.string "summary"
@@ -53,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_035802) do
     t.index ["section_id"], name: "index_section_edits_on_section_id"
   end
 
-  create_table "sections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "sections", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "page_id"
     t.string "name"
     t.integer "position"
@@ -65,7 +64,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_035802) do
     t.index ["page_id"], name: "index_sections_on_page_id"
   end
 
-  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "position"
     t.boolean "visible"

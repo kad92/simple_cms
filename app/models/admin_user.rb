@@ -17,9 +17,9 @@ class AdminUser < ApplicationRecord
 	validates_format_of :email, :with => EMAIL_REGEX
 	validates_confirmation_of :email
 
-	scope :sorted,lambda{order("last_name ASC,first_name ASC")}
-	
+	scope :sorted, lambda{ order("last_name ASC,first_name ASC")}
+
 	def name
-		:first_name + " " +:last_name
+		first_name + " " + last_name
 	end
 end

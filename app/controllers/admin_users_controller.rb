@@ -1,25 +1,35 @@
 class AdminUsersController < ApplicationController
 	layout "admin"
 
-	def index
-		@admin_users = AdminUser.sorted
-	end
+  before_action :confirm_logged_in
 
-	def new
-	end
+    def index
+      @admin_users = AdminUser.sorted
+    end
 
-	def create
-	end
+    def new
+      @admin_user = AdminUser.new
+    end
 
-	def edit
-	end
+    def create
+      @admin_user = AdminUser.new()
+    end
 
-	def update
-	end
+    def edit
+    end
 
-	def delete
-	end
+    def update
+    end
 
-	def destroy
-	end
+    def delete
+    end
+
+    def destroy
+    end
+
+    private
+
+      def admin_user_params
+        params.require[:admin_user].permit(:first_name,:last_name,:email,:username,:password)
+      end
 end

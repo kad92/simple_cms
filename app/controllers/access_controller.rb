@@ -1,15 +1,19 @@
 class AccessController < ApplicationController
-  
+
   layout "admin"
 
   before_action :confirm_logged_in, :except => [:login,:attempt_login,:logout]
 
   def index
+    @user_id = session[:user_id]
+    @current_user = AdminUser.find(@user_id)
   	#display text & links
   end
 
   def login
-  	#display login form
+    if session[:user_id] != nil && session[:username] != nil
+      redirect_to(:action => 'index')
+    end
   end
 
   def attempt_login
@@ -23,7 +27,7 @@ class AccessController < ApplicationController
 
   	if authorized_user
   		session[:user_id] = authorized_user.id
-  		session[:usernmae] = authorized_user.username
+  		session[:username] = authorized_user.username
   		flash[:notice] = "You are now logged in."
   		redirect_to(:action => "index")
   	else
@@ -34,7 +38,7 @@ class AccessController < ApplicationController
 
   def logout
   	session[:user_id] = nil
-  	session[:usernmae] = nil
+  	session[:username] = nil
 
   	flash[:notice] = "Logged out"
   	redirect_to(:action => "login")
