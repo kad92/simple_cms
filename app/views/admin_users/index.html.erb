@@ -1,8 +1,8 @@
 <% @page_title = "Admin Users"%>
 
 <div class= "admin_users index">
+<%= link_to("<<Back to list",{:controller => 'access',:action => 'index'}, :class => 'back-link')%>
   <h2>Admin Users</h2>
-
   <%= link_to(image_tag("plus_sign.png",:size => '11x11',:alt => '+') + "Add New Admin User",{:action => 'new'},:class => 'action new')%>
   <div><%= pluralize(@admin_users.size,"Admin User")%> found</div>
   <table>
@@ -14,14 +14,14 @@
       <th>Actions</th>
 		</tr>
 		<% @admin_users.each do |adminUser|%>
-			<tr>
+			<tr class="<%= cycle('even','odd')%>">
 				<td><%= adminUser.first_name %></td>
 				<td><%= adminUser.last_name %></td>
 				<td><%= adminUser.username %></td>
 				<td><%= adminUser.email %></td>
         <td class="actions">
-          <%= link_to("Edit","#", :class => 'action edit')%>
-          <%= link_to("Delete","#", :class => 'action delete')%>
+          <%= link_to("Edit",{:action => 'edit', :id => adminUser.id}, :class => 'action edit')%>
+          <%= link_to("Delete",{:action => 'delete', :id => adminUser.id}, :class => 'action delete')%>
         </td>
 			</tr>
 		<%end%>
