@@ -2,7 +2,8 @@ class AdminUser < ApplicationRecord
 	has_secure_password
 	has_many :section_edits
 	has_many :sections, :through => :section_edits
-	has_and_belongs_to_many :pages
+  has_and_belongs_to_many :pages
+
 
 	EMAIL_REGEX = /\A[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}\Z/i
 	validates_presence_of :first_name
@@ -15,7 +16,10 @@ class AdminUser < ApplicationRecord
 	validates_presence_of :email
 	validates_length_of :email, :maximum => 100
 	validates_format_of :email, :with => EMAIL_REGEX
-	validates_confirmation_of :email
+  validates_confirmation_of :email
+  validates :password, :presence => true,
+                       :confirmation => true
+  validates :password_confirmation, :presence => true
 
 	scope :sorted, lambda{ order("last_name ASC,first_name ASC")}
 
