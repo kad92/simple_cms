@@ -179,3 +179,12 @@ span.status.false {
 #errorExplanation ul li {
   list-style: square;
 }
+.dashboard{
+  width: 50% ;
+  margin: auto;
+
+}
+.show_info{
+  width: 50%;
+  margin: auto;
+}
