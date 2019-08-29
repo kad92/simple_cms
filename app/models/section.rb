@@ -6,6 +6,8 @@ class Section < ApplicationRecord
 
   CONTENT_TYPES = ['text','HTML']
 
+  scope :sorted, lambda{ order("sections.position ASC")}
+
   validates_presence_of :name
   validates_length_of :name, :maximum => 255
   validates_inclusion_of :content_type, :in => CONTENT_TYPES,
