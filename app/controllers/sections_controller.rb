@@ -8,7 +8,6 @@ class SectionsController < ApplicationController
   def index
     #@sections = Section.where(:page_id => @page.id).sorted
     @sections = @page.sections.sorted
-    puts "***********************************"
   end
 
   def show
@@ -18,7 +17,7 @@ class SectionsController < ApplicationController
   def new
     @section = Section.new({:page_id => @page.id,:name => "default"})
     @section_count = Section.count + 1
-    @pages = Page.order("position ASC")
+    @pages = @page.subject.pages.sorted
   end
 
   def create
@@ -44,6 +43,7 @@ class SectionsController < ApplicationController
     @section = Section.find(params[:id])
 
     if @section.update_attributes(section_params)
+
       flash[:notice] = "Section updated successfully."
       redirect_to(:action => 'show', :page_id => @page.id, :id => @section.id)
     else
