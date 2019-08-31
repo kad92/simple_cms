@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'acts_as_list', '~> 0.9.19'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

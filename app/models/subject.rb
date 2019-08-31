@@ -1,7 +1,8 @@
 class Subject < ApplicationRecord
 	has_many :pages
-
-  validates :name, :presence => true,
+	acts_as_list
+	
+  	validates :name, :presence => true,
                    :length => {:maximum => 255}
 
 

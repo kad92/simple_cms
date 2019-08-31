@@ -1,6 +1,8 @@
 class Page < ApplicationRecord
 	belongs_to :subject
 	has_many :sections
+	acts_as_list :scope => :subject
+	
 	has_and_belongs_to_many :editors, :class_name => "AdminUser"
 	
   	validates_presence_of :name
