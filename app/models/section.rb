@@ -4,6 +4,8 @@ class Section < ApplicationRecord
   has_many :editors, :through => :section_edits, :class_name => "AdminUser"
   acts_as_list :scope => :page
   
+  after_save :touch_page
+  
   validates_presence_of :name
 
   CONTENT_TYPES = ['text','HTML']
@@ -15,4 +17,9 @@ class Section < ApplicationRecord
   validates_inclusion_of :content_type, :in => CONTENT_TYPES,
   :message => "must be one of: #{CONTENT_TYPES.join(', ')}"
   validates_presence_of :content
+
+  private 
+      def touch_page
+        page.touch
+      end
 end
