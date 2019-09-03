@@ -19,7 +19,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font: 14px Verdana,Lucida,Arial,Helvetica,sans-serif; 
+  font: 14px Verdana,Lucida,Arial,Helvetica,sans-serif;
   color: #332318;
   background: rgb(239, 234, 234);
 }
@@ -72,8 +72,8 @@ a, a:visited {
   width: 180px;
   min-height: 480px;
   padding: 10px;
-  background: #94B26F;
-  color: #4C2516;
+  background:#422a21;
+  color: rgb(231, 231, 231);
 }
 #content {
   padding: 10px;

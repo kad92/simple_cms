@@ -180,11 +180,18 @@ span.status.false {
   list-style: square;
 }
 .dashboard{
-  width: 50% ;
-  margin: auto;
-
+  width: 100%;
+  margin: 20px 0px;
+}
+.dashboard ul{
+  width: 50%;
+  margin:auto;
 }
 .show_info{
+  width: 100%;
+  margin: auto;
+}
+.show_info table{
   width: 50%;
   margin: auto;
 }
